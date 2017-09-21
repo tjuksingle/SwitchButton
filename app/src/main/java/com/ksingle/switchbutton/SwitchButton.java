@@ -174,6 +174,10 @@ public class SwitchButton extends View {
         invalidate();
     }
 
+    public boolean isChecked(){
+        return check;
+    }
+    
     /**
      * @deprecated
      * */
