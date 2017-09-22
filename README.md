@@ -60,4 +60,6 @@ A switch like button.
   Layout里面的居中效果可以用layout_gravity来设置，支持margin来设置边界。
   
   如果在实际使用中发现什么不合适的，或者想要加特技的，欢迎一起来研究研究哈。
+  
+  最后的最后，如果喜欢这个View的话，希望可以点击Star按钮支持一下。
  
