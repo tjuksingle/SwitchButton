@@ -17,7 +17,7 @@ import android.view.View;
 
 
 /**
- * @link https://github.com/tjuksingle
+ * @link https://github.com/tjuksingle/SwitchButton
  * @author Ksingle
  * @version v1.0.0
  * Created by Ksingle on 2017/9/21.
