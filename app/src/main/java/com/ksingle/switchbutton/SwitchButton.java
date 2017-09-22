@@ -42,6 +42,7 @@ public class SwitchButton extends View {
     //the result size of the view
     private int widthResultSize;
     private int heightResultSize;
+    private final int maxHeightSize = 80;
 
     private Paint paint,switchOnPaint,switchOffPaint;
     private Rect rect,leftRect,rightRect;
@@ -120,9 +121,9 @@ public class SwitchButton extends View {
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
         if (heightMode == MeasureSpec.UNSPECIFIED){
-            heightResultSize = 80;  //a default value for heightResultSize
+            heightResultSize = maxHeightSize;
         }else {
-            heightResultSize = 80;
+            heightResultSize = maxHeightSize;
             if (heightMode == MeasureSpec.AT_MOST) { //wrap_content
                 heightResultSize = Math.min(heightResultSize, heightSize);
             }
