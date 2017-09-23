@@ -1,8 +1,7 @@
 package com.ksingle.switchbutton;
 
-import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -17,7 +16,8 @@ public class MainActivity extends AppCompatActivity {
         switchButton = (SwitchButton) findViewById(R.id.switchButton);
         switchButton.setText("Left","Right");
         switchButton.setChecked(false);
-        switchButton.setColor(Color.parseColor("#CD1280"),Color.parseColor("#564891"));
+        switchButton.defColor(R.color.SwitchOnColor,R.color.SwitchOffColor);
+        //switchButton.setColor(Color.parseColor("#CD1280"),Color.parseColor("#564891"));
         switchButton.setMode(SwitchButton.button_like);
         //switchButton.setMode(SwitchButton.button_like);
 

@@ -4,13 +4,11 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
-import android.graphics.RectF;
 import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,11 +17,12 @@ import android.view.View;
 /**
  * @link https://github.com/tjuksingle/SwitchButton
  * @author Ksingle
- * @version v1.0.0
+ * @version v1.0.1
  * Created by Ksingle on 2017/9/21.
  */
 
 public class SwitchButton extends View {
+    private Context context;
 
     //switchMode
     static final int button_like = 0;
@@ -53,22 +52,33 @@ public class SwitchButton extends View {
 
     private String leftSideString,rightSideString;
 
-
+    /**
+     * Java constructor
+     * */
     public SwitchButton(Context context) {
         super(context);
         init();
     }
 
+    /**
+     * XML constructor
+     * */
     public SwitchButton(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
+    /**
+     * XML constructor with defStyleAttr
+     * */
     public SwitchButton(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
 
+    /**
+     * XML constructor with defStyleAttr and defStyleRes
+     * */
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public SwitchButton(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
@@ -77,6 +87,8 @@ public class SwitchButton extends View {
 
 
     private void init(){
+        context = getContext();
+
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint.setTextSize(50);
         switchOnPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -178,7 +190,22 @@ public class SwitchButton extends View {
     public boolean isChecked(){
         return check;
     }
-    
+
+    public void defColor(int switchOnColorRes,int switchOffColorRes){
+        this.switchOnColor = ContextCompat.getColor(context,switchOnColorRes);
+        this.switchOffColor = ContextCompat.getColor(context,switchOffColorRes);
+        setPaint();
+        invalidate();
+    }
+
+    public void defColor(int switchOnColorRes,int switchOffColorRes,int textColorRes){
+        this.switchOnColor = ContextCompat.getColor(context,switchOnColorRes);
+        this.switchOffColor = ContextCompat.getColor(context,switchOffColorRes);
+        this.textColor = ContextCompat.getColor(context,textColorRes);
+        setPaint();
+        invalidate();
+    }
+
     /**
      * @deprecated
      * */
@@ -192,7 +219,6 @@ public class SwitchButton extends View {
     /**
      * @deprecated
      * */
-
     public void setColor(int switchOnColor,int switchOffColor,int textColor) {
         this.switchOnColor = switchOnColor;
         this.switchOffColor = switchOffColor;
