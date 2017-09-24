@@ -160,9 +160,9 @@ public class SwitchButton extends View {
         }
         if (leftSideString != null && rightSideString != null){
             paint.getTextBounds(leftSideString,0,leftSideString.length(),rect);
+            canvas.drawText(leftSideString,canvas.getWidth()/4-rect.width()/2,canvas.getHeight()/2-(paint.descent()+paint.ascent())/2,paint);
             paint.getTextBounds(rightSideString,0,rightSideString.length(),rect);
             canvas.drawText(rightSideString,canvas.getWidth()*3/4-rect.width()/2,canvas.getHeight()/2-(paint.descent()+paint.ascent())/2,paint);
-            canvas.drawText(leftSideString,canvas.getWidth()/4-rect.width()/2,canvas.getHeight()/2-(paint.descent()+paint.ascent())/2,paint);
         }
 //
 //        if (switchMode == SwitchButton.switch_normal){ //有没有大佬把矩形图像的圆角做了,感激不尽
@@ -175,6 +175,11 @@ public class SwitchButton extends View {
         this.leftSideString = leftSideString;
         this.rightSideString = rightSideString;
 
+        invalidate();
+    }
+
+    public void setTextSize(int textSize){
+        paint.setTextSize(textSize);
         invalidate();
     }
 

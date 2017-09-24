@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         switchButton = (SwitchButton) findViewById(R.id.switchButton);
         switchButton.setText("Left","Right");
         switchButton.setChecked(false);
-        switchButton.defColor(R.color.SwitchOnColor,R.color.SwitchOffColor);
+        switchButton.defColor(R.color.SwitchOnColor,R.color.SwitchOffColor,R.color.TextColor);
         //switchButton.setColor(Color.parseColor("#CD1280"),Color.parseColor("#564891"));
         switchButton.setMode(SwitchButton.button_like);
         //switchButton.setMode(SwitchButton.button_like);
