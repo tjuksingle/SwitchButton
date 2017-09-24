@@ -31,7 +31,7 @@ public class SwitchButton extends View {
 
     private int switchMode; //You can set switchMode by using setMode().
 
-    private boolean check;
+    private boolean check = true;
 
     //default color for rectangle and text
     private int switchOnColor = Color.parseColor("#CD000000");
