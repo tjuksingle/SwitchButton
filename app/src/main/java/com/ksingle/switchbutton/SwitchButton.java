@@ -25,9 +25,9 @@ public class SwitchButton extends View {
     private Context context;
 
     //switchMode
-    static final int button_like = 0;
-    static final int switch_normal = -1;
-    static final int switch_default = -2;
+    public static final int button_like = 0;
+    public static final int switch_normal = -1;
+    public static final int switch_default = -2;
 
     private int switchMode; //You can set switchMode by using setMode().
 
