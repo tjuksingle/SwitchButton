@@ -243,9 +243,29 @@ public class SwitchButton extends View {
 
     private boolean bindViewPager;
     private ViewPager viewPager;
-    public void bindWithViewPager(ViewPager viewPager){
+    public void bindWithViewPager(final ViewPager viewPager){
         bindViewPager = true;
         this.viewPager = viewPager;
+        this.viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 0){
+                    setChecked(true);
+                }else {
+                    setChecked(false);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
 
