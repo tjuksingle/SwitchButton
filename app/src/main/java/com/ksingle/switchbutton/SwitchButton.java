@@ -9,6 +9,7 @@ import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,7 +18,7 @@ import android.view.View;
 /**
  * @link https://github.com/tjuksingle/SwitchButton
  * @author Ksingle
- * @version v1.0.1
+ * @version v1.0.2
  * Created by Ksingle on 2017/9/21.
  */
 
@@ -25,9 +26,9 @@ public class SwitchButton extends View {
     private Context context;
 
     //switchMode
-    static final int button_like = 0;
-    static final int switch_normal = -1;
-    static final int switch_default = -2;
+    public static final int button_like = 0;
+    public static final int switch_normal = -1;
+    public static final int switch_default = -2;
 
     private int switchMode; //You can set switchMode by using setMode().
 
@@ -168,6 +169,14 @@ public class SwitchButton extends View {
 //        if (switchMode == SwitchButton.switch_normal){ //有没有大佬把矩形图像的圆角做了,感激不尽
 //            cycleCanvas.drawRoundRect(rectf,10,10,cyclePaint);
 //        }
+
+        if (bindViewPager){
+            if (check){
+                viewPager.setCurrentItem(0,true);
+            }else {
+                viewPager.setCurrentItem(1,true);
+            }
+        }
         super.onDraw(canvas);
     }
 
@@ -231,6 +240,14 @@ public class SwitchButton extends View {
         setPaint();
         invalidate();
     }
+
+    private boolean bindViewPager;
+    private ViewPager viewPager;
+    public void bindWithViewPager(ViewPager viewPager){
+        bindViewPager = true;
+        this.viewPager = viewPager;
+    }
+
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
