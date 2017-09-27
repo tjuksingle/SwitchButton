@@ -5,7 +5,7 @@ A switch like button.
 
   这回写中文吧，这捉急英文水平不知道要写到什么时候才会写完。有时间再说。
   
-  这是一个类似按钮效果的开关按钮（也就是一边turn on 的时候另外一边会trun of）。挺简陋的一小东西，还是不试着往jCenter里面塞了，真要用的话把文件复制到项目里面就行。这个View提供了几个控制方法：
+  这是一个类似按钮效果的开关按钮，当点击的时候一边的颜色会高亮。挺简陋的一小东西，还是不试着往jCenter里面塞了，真要用的话把文件复制到项目里面就行。这个View提供了几个控制方法：
   
   1.setText(String leftSideString,String rightSideString)：顾名思义，就是给每个按钮上面附上字符串，不建议写太长的字符。另外，如果不调用这个方法的话默认是没有字符显示的，光说不练，看图就知道了：
   
@@ -48,7 +48,7 @@ A switch like button.
   ![](https://github.com/tjuksingle/SwitchButton/blob/master/sample/textColorSample.png)
   
   
-  5.最后一个就是setMode(int switchMode)了，一共有三个：button_like，switch_normal，switch_default。自己拿去试着点一点就知道了。后面两个没有任何区别（没想好要干什么，欢迎大佬们来补充修改）。
+  5.然后就是setMode(int switchMode)了，一共有三个：button_like，switch_normal，switch_default。自己拿去试着点一点就知道了。后面两个没有任何区别（没想好要干什么，欢迎大佬们来补充修改）。
   
   default和normal的样式如下：
   
@@ -61,6 +61,14 @@ A switch like button.
   ![](https://github.com/tjuksingle/SwitchButton/blob/master/sample/button_like.gif)
   
   如果Mode设置成button_like，true状态必须点右边的按钮才能切换成false状态。
+  
+  6.原生支持包含两个fragment的viewPager！！！可以拿它去做导航栏，只需要bindWithViewPager即可实现与ViewPager的连接,不需要添加其他监听。代码如下：
+  
+        guide.bindWithViewPager(mViewPager);
+        
+效果如下：
+
+  ![](https://github.com/tjuksingle/SwitchButton/blob/master/sample/bindWithViewPagerSample.gif)
  
  # layout中的设置
   宽度一般来说需要自行设置，或者和父布局保持一致；高度有一个固定的最大值，如果不合适可以去自定义View源文件里面找到maxHeightSize把它修改成合适的值。
